@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+    registry:
+        image: 'registry:2'
+        container_name: registry
+        ports:
+            - '5000:5000'
+        restart: always
+
+    jenkins-master:
+        image: jenkins-master
+        container_name: jenkins-master
+        ports:
+            - '8080:8080'
+            - '50000:50000'
+        restart: always
+        depends_on:
+            - "registry"
+
+    jenkins-slave:
+        image: jenkins-slave
+        container_name: jenkins-slave
+        restart: on-failure
+        environment:
+            - 'JENKINS_URL=http://jenkins-master:8080'
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        depends_on:
+            - "jenkins-master"
+
