@@ -1,4 +1,4 @@
-# docker-comppose-jenkins
+# docker-compose-jenkins
 Creates Jenkins master slave setup.
 
 ## Requirements
