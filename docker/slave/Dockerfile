@@ -37,7 +37,7 @@ ENV SLAVE_NAME ""
 ENV SLAVE_SECRET ""
 ENV SLAVE_EXECUTORS "1"
 ENV SLAVE_LABELS "docker"
-ENV SLAVE_WORING_DIR ""
+ENV SLAVE_WORKING_DIR ""
 ENV CLEAN_WORKING_DIR "true"
 
 CMD [ "python3", "-u", "/var/lib/jenkins/slave.py" ]
